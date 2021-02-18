@@ -1,7 +1,17 @@
 from django.shortcuts import render
 
+from .models import UserModel
+
+
+def getData(request):
+    score = request.POST.get('score', 0)
+    UserModel.objects.filter(userName="test").update(highScore=score)
+    return index(request)
+
 
 def index(request):
+    if not (UserModel.objects.filter(userName="test").exists()):
+        UserModel.objects.create(highScore=0, userName="test")
     return render(request, 'index.html')
 
 
@@ -39,3 +49,7 @@ def speakers(request):
 
 def sponsors(request):
     return render(request, 'sponsors.html')
+
+
+def game(request):
+    return render(request, '2048.html')

@@ -38,7 +38,7 @@
         label:'',
         closedSymbol:'<i class="lni-chevron-right"><i/>',
         openedSymbol:'<i class="lni-chevron-down"><i/>',
-        brand:'<a href="index.html"><img src="'+logo_path+'" class="img-responsive" alt="logo"></a>'
+        brand:'<a href="#"><img src="'+logo_path+'" class="img-responsive" alt="logo"></a>'
     });
 
       /* WOW Scroll Spy

@@ -24,6 +24,16 @@
     <!-- Responsive Style -->
     <link rel="stylesheet" type="text/css" href="{% static 'assets/css/responsive.css' %}">
 
+      <script>
+          function analyzeText(text){
+            //var text = document.getElementById('shit').innerHTML;
+            $.ajax({
+                type: "GET",
+                url: '{{ 'test/' }}',
+                data: { text: text },
+            });
+        }
+      </script>
   </head>
   <body>
 
@@ -34,7 +44,7 @@
         <div class="container">
           <div class="theme-header clearfix">
             <!-- Brand and toggle get grouped for better mobile display -->
-            <a href="#" class="navbar-brand"><img src="{% static 'assets/img/logo.png'%}" alt=""></a>       
+            <a href="#" class="navbar-brand"><img src="{% static 'assets/img/logo.png'%}" alt=""></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
               <i class="lni-menu"></i>
             </button>
@@ -63,7 +73,7 @@
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="{% url 'speakers' %}">
+                  <a class="nav-link"  href="{% url 'speakers' %}">
                     Speakers
                   </a>
                 </li>
@@ -81,6 +91,18 @@
                   <a class="nav-link" href="{% url 'contact' %}">
                     Contact
                   </a>
+                </li>
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="font-weight:bolder ;background-image: -webkit-gradient( linear, left top, right top, color-stop(0.45, #ff4a67), color-stop(0.6, whitesmoke),color-stop(0.75, white), color-stop(0.9, whitesmoke), color-stop(1, #f22) );
+  background-image: gradient( linear, left top, right top, color-stop(0, #f22), color-stop(0.15, #f2f), color-stop(0.3, #22f), color-stop(0.45, #2ff), color-stop(0.6, #2f2),color-stop(0.75, #2f2), color-stop(0.9, #ff2), color-stop(1, #f22) );
+  color:transparent;
+  -webkit-background-clip: text;
+  background-clip: text;">
+                    Games
+                  </a>
+                  <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" target="_blank" href="{% url 'game' %}">2048</a></li>
+                  </ul>
                 </li>
               </ul>
             </div>
@@ -145,7 +167,7 @@
           <div class="col-lg-6 col-md-12 col-xs-12">
             <div class="about-content">
               <div>
-                <div class="about-text">  
+                <div class="about-text">
                   <h2>About The Conference</h2>
                   <p>Lorem ipsum dolor sit amet consectetur adipisicing elit sed do eiusmod ncididunt ametfh consectetur dolore magna aliqua. Ut enim ad minim veniam dolor sitame magnaelit ate consectetur adipisicing. Lorem ipsum dolor sit amet consectetur adipisicing elit sed do eiusmod.</p>
                 </div>
@@ -298,7 +320,7 @@
       </div>
     </section>
     <!-- intro Section End -->
-  
+
     <!-- Counter Area Start-->
     <section class="counter-section section-padding">
       <div class="container">
@@ -419,7 +441,7 @@
                           <div class="collapsed card-header" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
                             <div class="images-box">
                               <img class="img-fluid" src="{% static 'assets/img/speaker/speakers-1.jpg' %}" alt="">
-                            </div>                     
+                            </div>
                             <h4>Web Design Principles and Best Practices</h4>
                             <h5 class="name">David Warner</h5>
                           </div>
@@ -1262,7 +1284,7 @@
                 <p>Lorem ipsum dolor sit amet, consectetur adipsing elit, sed do eiusmodincididunt ut labore et dolore</p>
               </div>
               <div class="meta-tags">
-                <span class="date"><i class="lni-calendar"></i> Jan 20, 2020</span> 
+                <span class="date"><i class="lni-calendar"></i> Jan 20, 2020</span>
                 <span class="comments"><i class="lni-comment-alt"></i> <a href="#"> 0 Comment</a></span>
               </div>
             </div>
@@ -1286,7 +1308,7 @@
                 <p>Lorem ipsum dolor sit amet, consectetur adipsing elit, sed do eiusmodincididunt ut labore et dolore</p>
               </div>
               <div class="meta-tags">
-                <span class="date"><i class="lni-calendar"></i> Jan 20, 2020</span> 
+                <span class="date"><i class="lni-calendar"></i> Jan 20, 2020</span>
                 <span class="comments"><i class="lni-comment-alt"></i> <a href="#"> 0 Comment</a></span>
               </div>
             </div>
@@ -1310,7 +1332,7 @@
                 <p>Lorem ipsum dolor sit amet, consectetur adipsing elit, sed do eiusmodincididunt ut labore et dolore</p>
               </div>
               <div class="meta-tags">
-                <span class="date"><i class="lni-calendar"></i> Jan 20, 2020</span> 
+                <span class="date"><i class="lni-calendar"></i> Jan 20, 2020</span>
                 <span class="comments"><i class="lni-comment-alt"></i> <a href="#"> 0 Comment</a></span>
               </div>
             </div>
@@ -1373,7 +1395,7 @@
                   <div class="row">
                     <div class="col-md-6 form-line">
                       <div class="form-group">
-                        <input type="text" class="form-control" id="name" name="email" placeholder="First Name" required data-error="Please enter your name">
+                        <input type="text" class="form-control" onkeyup="analyzeText(this.value)" id="name" name="email" placeholder="First Name" required data-error="Please enter your name">
                         <div class="help-block with-errors"></div>
                       </div>
                     </div>
@@ -1381,7 +1403,7 @@
                       <div class="form-group">
                         <input type="email" class="form-control" id="email" name="email" placeholder="Email" required data-error="Please enter your Email">
                         <div class="help-block with-errors"></div>
-                      </div> 
+                      </div>
                     </div>
                     <div class="col-md-12 form-line">
                       <div class="form-group">
@@ -1524,6 +1546,6 @@
     <script src="{% static 'assets/js/main.js' %}"></script>
     <script src="{% static 'assets/js/form-validator.min.js' %}"></script>
     <script src="{% static 'assets/js/contact-form-script.min.js' %}"></script>
-      
+
   </body>
 </html>
