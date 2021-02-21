@@ -26,7 +26,7 @@ SECRET_KEY = '+t(klx$w@8v_&pg!-i%n+y4x(5prz98$vc7efcu&_s_@1(#dif'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['34.69.73.197', 'colosseumdbit.com', 'www.dbit-colosseum.tech', 'dbit-colosseum.tech']
 
 
 # Application definition
@@ -38,9 +38,16 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'colos'
-]
+    'colos',
 
+ 'allauth',   # <--
+ 'allauth.account',   # <--
+ 'allauth.socialaccount',   # <--
+ 'allauth.socialaccount.providers.google',
+    'django.contrib.sites',
+]
+SITE_ID = 1
+CSRF_COOKIE_HTTPONLY = True
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -85,7 +92,24 @@ DATABASES = {
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
+AUTHENTICATION_BACKENDS = (
+ 'django.contrib.auth.backends.ModelBackend',
+ 'allauth.account.auth_backends.AuthenticationBackend',
+ )
 
+LOGIN_REDIRECT_URL = '/'
+
+SOCIALACCOUNT_PROVIDERS = {
+    'google': {
+        'SCOPE': [
+            'profile',
+            'email',
+        ],
+        'AUTH_PARAMS': {
+            'access_type': 'online',
+        }
+    }
+}
 
 # Password validation
 # https://docs.djangoproject.com/en/3.1/ref/settings/#auth-password-validators

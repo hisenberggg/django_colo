@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 {% load static %}
+{% load socialaccount %}
 <html lang="en">
   <head>
     <!-- Required meta tags -->
@@ -24,6 +25,9 @@
     <!-- Responsive Style -->
     <link rel="stylesheet" type="text/css" href="{% static 'assets/css/responsive.css' %}">
 
+      <link>
+
+
       <script>
           function analyzeText(text){
             //var text = document.getElementById('shit').innerHTML;
@@ -32,6 +36,10 @@
                 url: '{{ 'test/' }}',
                 data: { text: text },
             });
+        }
+
+        function loginPop() {
+
         }
       </script>
   </head>
@@ -50,11 +58,18 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarCollapse">
               <ul class="navbar-nav mr-auto w-100 justify-content-end">
-                <li class="nav-item active">
-                  <a class="nav-link" href="#header-wrap">
-                    Home
-                  </a>
+              <li class="nav-item active">
+                {% if user.is_authenticated %}
+                  <a class="nav-link" href="#" style="text-transform: capitalize">
+                    Hello <span style="text-transform: capitalize;">{{ user.username }}!</span>
+                   </a>
+                {% else %}
                 </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="{% provider_login_url  'google' %}">
+                    Login
+                  </a>
+                  {% endif %}
                 <li class="nav-item dropdown">
                   <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Pages
@@ -80,16 +95,6 @@
                 <li class="nav-item">
                   <a class="nav-link" href="{% url 'blog' %}">
                     Blog
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="{% url 'pricing' %}">
-                    Buy Tickets
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="{% url 'contact' %}">
-                    Contact
                   </a>
                 </li>
                 <li class="nav-item dropdown">
