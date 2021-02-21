@@ -194,10 +194,8 @@
 
     <!-- Video Section Start -->
     <div class="ready-to-play">
-      <video id="bgvid" class="stop" loop>
-        <source src="{% static 'assets/video/event.webm'%}" type="video/mp4">
-      </video>
-      <div id="polina" class="video-text">
+      <video id="myVideo" controls=""></video>
+      <div id="polina" class="video-text" style="display: none;">
         <div class="tb-t">
             <div class="tb-c">
               <div class="polina"><button><i class='lni-play'></i></button></div>
@@ -1536,6 +1534,7 @@
     </div>
 
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
     <script src="{% static 'assets/js/jquery-min.js' %}"></script>
     <script src="{% static 'assets/js/popper.min.js' %}"></script>
     <script src="{% static 'assets/js/bootstrap.min.js' %}"></script>
@@ -1552,5 +1551,22 @@
     <script src="{% static 'assets/js/form-validator.min.js' %}"></script>
     <script src="{% static 'assets/js/contact-form-script.min.js' %}"></script>
 
+<script type="text/javascript">
+    (function(){
+    var playbackId = "ucAEP00cx1LREFFN8pNzXF7gug01pq01JXaAUYwuo1SS2E";
+    var url = "https://stream.mux.com/" + playbackId + ".m3u8";
+    var video = document.getElementById("myVideo");
+    
+    // Let native HLS support handle it if possible
+    if (video.canPlayType('application/vnd.apple.mpegurl')) {
+      video.src = url;
+    } else if (Hls.isSupported()) {
+      // HLS.js-specific setup code
+      hls = new Hls();
+      hls.loadSource(url);
+      hls.attachMedia(video);
+    }
+  })();
+</script>
   </body>
 </html>

@@ -26,7 +26,7 @@ SECRET_KEY = '+t(klx$w@8v_&pg!-i%n+y4x(5prz98$vc7efcu&_s_@1(#dif'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['34.69.73.197', 'colosseumdbit.com', 'www.dbit-colosseum.tech', 'dbit-colosseum.tech']
+ALLOWED_HOSTS = ['34.69.73.197', 'colosseumdbit.com', 'www.dbit-colosseum.tech', 'dbit-colosseum.tech', '127.0.0.1']
 
 
 # Application definition
