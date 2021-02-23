@@ -24,23 +24,19 @@
     <link rel="stylesheet" type="text/css" href="{% static 'assets/css/main.css' %}">
     <!-- Responsive Style -->
     <link rel="stylesheet" type="text/css" href="{% static 'assets/css/responsive.css' %}">
-
-      <link>
-
+    <link rel="preconnect" href="https://fonts.gstatic.com"> 
+    
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel=" stylesheet">
 
       <script>
+	//GAWD AJAX here to rescue
           function analyzeText(text){
-            //var text = document.getElementById('shit').innerHTML;
             $.ajax({
                 type: "GET",
                 url: '{{ 'test/' }}',
-                data: { text: text },
             });
         }
 
-        function loginPop() {
-
-        }
       </script>
   </head>
   <body>
@@ -52,7 +48,7 @@
         <div class="container">
           <div class="theme-header clearfix">
             <!-- Brand and toggle get grouped for better mobile display -->
-            <a href="#" class="navbar-brand"><img src="{% static 'assets/img/logo.png'%}" alt=""></a>
+            <a href="#" class="navbar-brand"><img src="{% static 'assets/img/col.png'%}" alt=""></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
               <i class="lni-menu"></i>
             </button>
@@ -60,40 +56,40 @@
               <ul class="navbar-nav mr-auto w-100 justify-content-end">
               <li class="nav-item active">
                 {% if user.is_authenticated %}
-                  <a class="nav-link" href="#" style="text-transform: capitalize">
+                  <a class="nav-link" href="#" style="text-transform: capitalize;font-family: 'Press Start 2P'; font-size: 10px;">
                     Hello <span style="text-transform: capitalize;">{{ user.username }}!</span>
                    </a>
                 {% else %}
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="{% provider_login_url  'google' %}">
+                  <a class="nav-link" href="{% provider_login_url  'google' %}" style="font-family: 'Press Start 2P' ; font-size: 10px;">
                     Login
                   </a>
                   {% endif %}
                 <li class="nav-item dropdown">
-                  <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"; style="font-family: 'Press Start 2P' ; font-size: 10px;">
                     Pages
                   </a>
                   <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="{% url 'about' %}">About Us</a></li>
-                    <li><a class="dropdown-item" href="{% url 'gallery' %}">Gallery</a></li>
-                    <li><a class="dropdown-item" href="{% url 'pricing' %}">Pricing Table</a></li>
-                    <li><a class="dropdown-item" href="{% url 'sponsors' %}">Sponsors</a></li>
-                    <li><a class="dropdown-item" href="{% url 'single_post' %}">Single Post</a></li>
+                    <li><a class="dropdown-item" href="{% url 'about' %}"; style="font-family: 'Press Start 2P' ; font-size: 10px;">About Us</a></li>
+                    <li><a class="dropdown-item" href="{% url 'gallery' %}"; style="font-family: 'Press Start 2P' ; font-size: 10px;">Gallery</a></li>
+                    <li><a class="dropdown-item" href="{% url 'pricing' %}"; style="font-family: 'Press Start 2P' ; font-size: 10px;">Pricing Table</a></li>
+                    <li><a class="dropdown-item" href="{% url 'sponsors' %}"; style="font-family: 'Press Start 2P' ; font-size: 10px;">Sponsors</a></li>
+                    <li><a class="dropdown-item" href="{% url 'single_post' %}"; style="font-family: 'Press Start 2P' ; font-size: 10px;">Single Post</a></li>
                   </ul>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="{% url 'schedule' %}">
+                  <a class="nav-link" href="{% url 'schedule' %}"; style="font-family: 'Press Start 2P' ; font-size: 10px;">
                     schedules
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link"  href="{% url 'speakers' %}">
+                  <a class="nav-link"  href="{% url 'speakers' %}"; style="font-family: 'Press Start 2P' ; font-size: 10px;">
                     Speakers
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="{% url 'blog' %}">
+                  <a class="nav-link" href="{% url 'blog' %}"; style="font-family: 'Press Start 2P' ; font-size: 10px;">
                     Blog
                   </a>
                 </li>
@@ -102,18 +98,18 @@
   background-image: gradient( linear, left top, right top, color-stop(0, #f22), color-stop(0.15, #f2f), color-stop(0.3, #22f), color-stop(0.45, #2ff), color-stop(0.6, #2f2),color-stop(0.75, #2f2), color-stop(0.9, #ff2), color-stop(1, #f22) );
   color:transparent;
   -webkit-background-clip: text;
-  background-clip: text;">
+  background-clip: text;font-family: 'Press Start 2P' ; font-size: 10px;">
                     Games
                   </a>
                   <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" target="_blank" href="{% url 'game' %}">2048</a></li>
+                    <li><a class="dropdown-item" target="_blank" href="{% url 'game' %}"; style="font-family: 'Press Start 2P' ; font-size: 10px;">2048</a></li>
                   </ul>
                 </li>
               </ul>
             </div>
           </div>
         </div>
-        <div class="mobile-menu" data-logo="{% static 'assets/img/logo.png' %}"></div>
+        <div class="mobile-menu" data-logo="{% static 'assets/img/col.png' %}"></div>
       </nav>
       <!-- Navbar End -->
 
@@ -125,14 +121,14 @@
             <div class="col-lg-9 col-sm-12">
               <div class="contents text-center">
                 <div class="icon">
-                  <i class="lni-mic"></i>
+                <img src="static/assets/img/col1.png" alt="" style="position: relative; width: 70%; height: 30%;">
                 </div>
-                <p class="banner-info">15, Oct 2020 - MOndini Hall, NY, United states</p>
-                <h2 class="head-title">Developers Conference</h2>
-                <p class="banner-desc">
+                <p class="banner-info"; style="font-family: 'Press Start 2P' ;">15, Oct 2020 - MOndini Hall, NY, United states</p>
+                <h2 class="head-title"; style="font-family: 'Press Start 2P' ;">Developers Conference</h2>
+                <p class="banner-desc"; style="font-family: 'Press Start 2P' ;">
                   Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente, nobis nesciunt atque perferendis, ipsa doloremque deserunt cum qui.</p>
                 <div class="banner-btn">
-                  <a href="#" class="btn btn-common">Get Ticket</a>
+                  <a href="#" class="btn btn-common"; style="font-family: 'Press Start 2P'; font-size: 10px;">Get Ticket</a>
                 </div>
               </div>
             </div>
@@ -1492,7 +1488,7 @@
               </form>
             </div>
             <div class="footer-logo">
-              <img src="{% static 'assets/img/logo.png' %}" alt="">
+              <img src="{% static 'assets/img/col.png' %}" alt="">
             </div>
             <div class="social-icons-footer">
               <ul>
@@ -1513,7 +1509,7 @@
 
     <!-- Go to Top Link -->
     <a href="#" class="back-to-top">
-    	<i class="lni-chevron-up"></i>
+      <i class="lni-chevron-up"></i>
     </a>
 
     <div id="preloader">
@@ -1546,13 +1542,12 @@
     <script src="{% static 'assets/js/wow.js' %}"></script>
     <script src="{% static 'assets/js/jquery.slicknav.js' %}"></script>
     <script src="{% static 'assets/js/nivo-lightbox.js' %}"></script>
-    <script src="{% static 'assets/js/video.js' %}"></script>
     <script src="{% static 'assets/js/main.js' %}"></script>
     <script src="{% static 'assets/js/form-validator.min.js' %}"></script>
     <script src="{% static 'assets/js/contact-form-script.min.js' %}"></script>
 
 <script type="text/javascript">
-    (function(){
+    /*(function(){
     var playbackId = "ucAEP00cx1LREFFN8pNzXF7gug01pq01JXaAUYwuo1SS2E";
     var url = "https://stream.mux.com/" + playbackId + ".m3u8";
     var video = document.getElementById("myVideo");
@@ -1566,7 +1561,7 @@
       hls.loadSource(url);
       hls.attachMedia(video);
     }
-  })();
+  })();*/
 </script>
   </body>
 </html>
